@@ -1,5 +1,5 @@
 import data from "../../data/data.json";
-import { OverviewCard } from "./OverviewCard";
+import { OverviewCard,OverviewTodayCard } from "./OverviewCard";
 
 const OverviewContainer = () => {
   const convertNumberTok = (number) => {
@@ -27,5 +27,24 @@ const OverviewContainer = () => {
     </section>
   );
 };
+
+export const OverviewTodayContainer =()=>{
+  return (
+    <div>
+      {
+        data['overview-today'].map(object =>
+          <OverviewTodayCard 
+            key={object.id} 
+            network={object.network} 
+            statsType={object.statsType} 
+            stats={object.stats} 
+            porcentage={object.porcentage} 
+            isUp={object.isUp}
+          />
+        )
+      }
+    </div>
+  )
+}
 
 export default OverviewContainer;

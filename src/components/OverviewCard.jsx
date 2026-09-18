@@ -1,3 +1,4 @@
+import data from "../../data/data.json";
 import facebookLogo from '../images/icon-facebook.svg'
 import twitterLogo from '../images/icon-twitter.svg'
 import instagramLogo from '../images/icon-instagram.svg'
@@ -38,3 +39,24 @@ export const OverviewCard =({user,audienceType,audience,network,isUp,today}) =>{
         </article>
     )
 }
+
+
+export const OverviewTodayCard=(network,statsType,stats,porcentage,isUp)=>{
+    return(
+        <article className="bg-light-grayish-blue w-[326px] h-[125px] mb-4 mx-auto rounded-[5px] p-[27px]">
+            <div>
+                <p>likes</p>
+                    <img src={facebookLogo} alt="" />                  
+            </div>
+            <div>
+                <p>5462</p>
+                <div className='flex items-center place-content-center gap-1 '>
+                <img src={isUp ? iconUp : iconDown} alt={isUp ? "Up arrow" : "Down arrow"} />
+                <p className={`text-xs font-bold ${isUp ? 'text-lime-green' : 'text-bright-red'}`}>{stats} today </p>
+            </div>
+            </div>
+        </article>
+    )
+}
+
+
